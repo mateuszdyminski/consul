@@ -1,0 +1,10 @@
+# - name: updating machine
+#   shell: yum -y update
+#   sudo: True
+
+- name: installing some dependencies
+  yum: pkg={{ item }} state=installed
+  with_items:
+  - zip
+  - unzip
+  sudo: True

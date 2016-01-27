@@ -1,0 +1,7 @@
+- name: starting consul
+  service: name=consul enabled=yes state=started
+  sudo: True
+
+- name: starting application
+  service: name=ap enabled=yes state=started
+  sudo: True

@@ -1,0 +1,6 @@
+# General
+app_dir: "/home/{{user}}/app"
+
+# HTTP server
+http_host: "{{ansible_ssh_host}}"
+http_port: 9000

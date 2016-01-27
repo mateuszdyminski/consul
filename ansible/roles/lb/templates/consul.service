@@ -1,0 +1,6 @@
+[Unit]
+Description=Consul
+
+[Service]
+TimeoutStartSec=0
+ExecStart=/usr/local/bin/consul agent -config-dir /etc/consul.d

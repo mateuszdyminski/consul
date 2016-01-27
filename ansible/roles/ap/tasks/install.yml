@@ -1,0 +1,11 @@
+- name: create directory for application
+  file: path={{app_dir}} state=directory mode=0775
+
+- name: download app
+  copy: src=ap dest={{app_dir}}/ap mode=0775
+
+- name: install unit file
+  template: src=ap.service dest=/lib/systemd/system/ owner=root mode=644
+  sudo: True
+  notify:
+    - reload systemd

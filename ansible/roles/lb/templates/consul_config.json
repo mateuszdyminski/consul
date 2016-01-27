@@ -1,0 +1,13 @@
+{
+  "bind_addr": "{{ansible_ssh_host}}",
+  "node_name": "{{inventory_hostname}}",
+  "client_addr": "0.0.0.0",
+  "bootstrap": true,
+  "ui": true, 
+  "server": true,
+  "datacenter": "eu",
+  "data_dir": "/var/consul",
+  "encrypt": "I7bO8dvTfv7bTQuTiwqhPg==",
+  "log_level": "INFO",
+  "enable_syslog": true
+}

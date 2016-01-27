@@ -1,0 +1,5 @@
+---
+- hosts: [ "lb_node" ]
+  user: '{{ user }}'
+  roles:
+  - lb

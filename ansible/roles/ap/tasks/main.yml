@@ -1,0 +1,7 @@
+---
+# tasks file for application server
+
+- include: dependencies.yml
+- include: consul.yml
+- include: install.yml
+- include: start.yml

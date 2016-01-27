@@ -1,0 +1,29 @@
+- name: download consul
+  get_url: url=https://releases.hashicorp.com/consul/0.6.1/consul_0.6.1_linux_amd64.zip dest=/home/{{user}}/consul_0.6.1_linux_amd64.zip
+
+- name: unpack consul
+  unarchive: src=/home/{{user}}/consul_0.6.1_linux_amd64.zip dest=/home/{{user}} copy=no
+
+- name: create directory for consul data
+  file: path=/var/consul state=directory
+  sudo: True
+
+- name: move consul to bin
+  shell: mv /home/{{user}}/consul /usr/local/bin
+  sudo: True
+
+- name: create directory for config
+  file: path=/etc/consul.d state=directory mode=0440
+  sudo: True
+
+- name: prepare configuration file
+  template: src=consul_config.json dest=/etc/consul.d/consul_config.json
+  tags:
+    - upgrade
+  sudo: True
+
+- name: install consul unit file
+  template: src=consul.service dest=/lib/systemd/system/ owner=root mode=644
+  sudo: True
+  notify:
+    - reload systemd

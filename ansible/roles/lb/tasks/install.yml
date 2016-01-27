@@ -1,0 +1,11 @@
+- name: create directory for load balancer
+  file: path={{lb_dir}} state=directory mode=0775
+
+- name: download lb
+  copy: src=fabio dest={{lb_dir}}/fabio mode=0775
+
+- name: install unit file
+  template: src=lb.service dest=/lib/systemd/system/ owner=root mode=644
+  sudo: True
+  notify:
+    - reload systemd

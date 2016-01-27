@@ -1,0 +1,6 @@
+[Unit]
+Description=Load Balancer
+
+[Service]
+TimeoutStartSec=0
+ExecStart={{lb_dir}}/fabio

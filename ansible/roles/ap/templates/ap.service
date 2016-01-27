@@ -1,0 +1,6 @@
+[Unit]
+Description=Application
+
+[Service]
+TimeoutStartSec=0
+ExecStart={{app_dir}}/ap -addr {{http_host}}:{{http_port}} -prefix /foo,/bar -name {{inventory_hostname}}
