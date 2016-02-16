@@ -1,6 +1,13 @@
 [Unit]
 Description=Consul
+Before=lb.service
 
 [Service]
+User=root
+Restart=always
+RestartSec=5
 TimeoutStartSec=0
 ExecStart=/usr/local/bin/consul agent -config-dir /etc/consul.d
+
+[Install]
+WantedBy=multi-user.target

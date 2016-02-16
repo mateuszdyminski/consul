@@ -1,6 +1,14 @@
 [Unit]
 Description=Application
+Requires=consul.service
+After=consul.service
 
 [Service]
+User=root
+Restart=always
+RestartSec=5
 TimeoutStartSec=0
 ExecStart={{app_dir}}/ap -addr {{http_host}}:{{http_port}} -prefix /foo,/bar -name {{inventory_hostname}}
+
+[Install]
+WantedBy=multi-user.target
