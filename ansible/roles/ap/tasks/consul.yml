@@ -1,8 +1,8 @@
 - name: download consul
-  get_url: url=https://releases.hashicorp.com/consul/0.6.1/consul_0.6.1_linux_amd64.zip dest=/home/{{user}}/consul_0.6.1_linux_amd64.zip
+  get_url: url=https://releases.hashicorp.com/consul/0.6.4/consul_0.6.4_linux_amd64.zip dest=/home/{{user}}/consul_0.6.4_linux_amd64.zip
 
 - name: unpack consul
-  unarchive: src=/home/{{user}}/consul_0.6.1_linux_amd64.zip dest=/home/{{user}} copy=no
+  unarchive: src=/home/{{user}}/consul_0.6.4_linux_amd64.zip dest=/home/{{user}} copy=no
 
 - name: create directory for consul data
   file: path=/var/consul state=directory
